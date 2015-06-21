@@ -383,7 +383,7 @@
 					var itemLink = cells[1].getElementsByTagName('a')[0]; 
 					if(iconImg && itemLink) {
 						var iconName = iconImg.getAttribute('src');
-						var itemURL = itemLink.getAttribute('href');
+						var itemURL = decodeURIComponent(itemLink.getAttribute('href'));
 						addItemToFiles(iconName, itemURL);
 					}
 				}
