@@ -1,0 +1,94 @@
+/**
+ * IndexGallery.css
+ * by Denis Volkov (den@denvo.name)
+ */
+
+#image-list {
+	list-style: none;
+}
+#image-list * {
+	margin: 0;
+	padding: 0;
+}
+
+#image-list li {
+	position: relative;
+	float: left;
+	margin: 1em;
+}
+
+/** Use selector '#image-list li a' to override these styles */
+#image-list a {
+	display: block;
+	position: relative;
+	width: 250px;
+	height: 250px;
+	margin-bottom: 3em;
+
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	text-decoration: none;
+}
+
+#image-list li.item-folder a {
+	/* Icon from http://www.iconarchive.com/show/free-folder-icons-by-iconshock/folder-images-icon.html */
+	background-image: url(./folder-icon.png);
+}
+
+#image-list a:before {
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: -1.2em;
+	width: 100%;
+
+	content: attr(data-title);
+	color: #000;
+	text-align: center;
+	text-shadow: 0 0 10px rgba(0, 0, 0, 1.0);
+}
+
+/** Wait dialog overlay */
+#wait-dialog {
+	display: block;
+	position: absolute;
+	top: 0;	
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+
+	background: none rgba(0, 0, 0, 0.5);
+}
+/** Actual dialog */
+#wait-dialog:before {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 300px;
+	height: 30px;
+	margin: -103px 0 0 -175px;
+	padding: 150px 25px 25px;
+	
+	border: 1px solid #000;
+	box-shadow: 5px 5px 5px #555; 
+	border-radius: 25px;
+
+	content: 'Please, wait...';
+	text-align: center;
+	font-family: Arial, Verdana, serif;
+
+	background-color: #EEE;
+	/* Loader image created at http://preloaders.net/ */
+	background-image: url(./loader.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 25px;
+}
+
+#lightcase-nav a { 
+	text-decoration: none;
+}
