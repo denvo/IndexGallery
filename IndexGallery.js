@@ -270,7 +270,7 @@
 				});
 				var linkAttrs = {
 					href: item.url,
-					title: (item.description || ''),
+					title: (item.description || item.url),
 					'data-title': (item.title || item.url)
 				};
 				// LightCase specific setup (see http://cornel.bopp-art.com/lightcase/)
