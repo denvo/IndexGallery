@@ -382,6 +382,28 @@
 		}
 
 		/**
+		 * Create empty description template and show it instead of gallery content
+		 */
+		function showDescriptionTemplate(body) {
+			var description = buildDescription();
+			description.title = '';
+			description.subtitle = '';
+			description.items.forEach(function(item) {
+				item.title = '';
+				item.description = '';
+			});
+
+			cleanUpPage(body);
+			var header = createAddElement('p', body);
+			header.innerHTML = 'This is a template for ' + options.descriptionFile + ' file. <a href="?">Go to gallery content</a>';
+			var textArea = createAddElement('textarea', body, {
+				rows: 30,
+				cols: 90
+			});
+			textArea.value = JSON.stringify(description, null, 4);
+		}
+
+		/**
 		 * Initialize the Gallery after page loaded
 		 */
 		this.init = function () {
@@ -398,7 +420,9 @@
 					cleanUpPage(body);
 					createWaitDialog(body);
 				}
-			} else  {
+			} else if(location.href.match(/\#description$/)) {
+				showDescriptionTemplate(body);
+			} else {
 				createSimpleGallery(body);
 			} 
 		};
