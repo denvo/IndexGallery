@@ -21,4 +21,6 @@ Note that:
         
 to prevent them from indexing
 
+## Demo
 
+The live demo is available here: http://www.denvo.name/index-gallery-demo/
