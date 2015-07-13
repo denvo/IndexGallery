@@ -72,7 +72,7 @@ function shrinkImage($srcName, $dstName, $width, $height)
     } elseif ($pathParts['extension'] == 'png') {
         $success = imagepng($smallImg, $dstName);
     } else {
-        $success = imagejpeg($smallImg, $dstName, 95);
+        $success = imagejpeg($smallImg, $dstName, 97);
     }
 
     imagedestroy($smallImg);
