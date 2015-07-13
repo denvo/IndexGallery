@@ -149,7 +149,7 @@
 		function cleanUpPage(body) {
 			for(var n = 0; n < body.children.length; ++ n) {
 				var child = body.children[n];
-				if(child.name == 'h1') {
+				if(child.tagName == 'H1') {
 					// Hide the header
 					child.style.display = 'none';
 				} else {
@@ -203,13 +203,12 @@
 			cleanUpPage(body);
 
 			// Set up the header
-			if(description.title) {
-				var header = body.getElementsByTagName('h1')[0];
-				if(!header) {
-					header = createAddElement('h1', body);
-				}
+			var header = body.getElementsByTagName('h1')[0];
+			if(!header) {
+				header = createAddElement('h1', body);
+			}
+			if(typeof description.title !== 'undefined') {
 				header.innerHTML = description.title;
-				header.style.display = 'block';	// Restore visibility of the header
 				var title = document.getElementsByTagName('title')[0];
 				if(!title) {
 					var head = document.getElementsByTagName('head')[0];
@@ -218,6 +217,8 @@
 				// Strip any HTML tags from the title
 				title.innerHTML = description.title.replace(/\<.+?\>/g, '');
 			}
+			header.style.display = 'block';	// Restore visibility of the header
+
 			if(description.subtitle) {
 				var subtitle = createAddElement('h2', body);
 				subtitle.innerHTML = description.subtitle;
