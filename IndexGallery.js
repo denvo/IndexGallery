@@ -158,16 +158,6 @@
 					-- n; // Stay on the same place
 				}
 			}
-/*
-			var table = body.getElementsByTagName('table')[0];
-			if(table) {
-				body.removeChild(table);
-			}
-			var waitDialog = body.getElementsByClassName('waitDialog')[0];
-			if(waitDialog) {
-				body.removeChild(table);
-			}
-*/
 		}
 
 		/**
