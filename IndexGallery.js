@@ -17,7 +17,7 @@
 
 		// If the image doesn't have corresponding thumbnail image, and the URL is specified here,
 		// it will be used as a thumbnail src attribute. '%' sign will be replaced by the image URL
-		// thumbnailGeneratorURL: '/thumbnail.php?org=%',
+		thumbnailGeneratorURL: '/scripts/thumbnail.php?org=%',
 
 		// Description file name
 		// If exists, it provider the order of images as well as their titles and descriptions
@@ -117,10 +117,10 @@
 	}
 
 	/**
-	 * Create absolute URL based on the page URL
+	 * Create absolute URL (w/o protocol and host name) based on the page URL
 	 */
 	function getAbsoluteURL(url) {
-		var pageFolder = location.href.replace(/\/[^\/]+$/, '/');
+		var pageFolder = location.href.replace(/^.*?\:\/\/.*?(?=\/)/, '').replace(/\/[^\/]+$/, '/');
 		return pageFolder + url;
 	}
 
